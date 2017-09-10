@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Example.API.Attributes;
 using Example.DTO.Horse;
 using Microsoft.AspNetCore.Mvc;
 using Example.Services.Interfaces;
@@ -63,10 +64,13 @@ namespace Example.API.Controllers
         /// </summary>
         /// <param name="horse"></param>
         /// <response code="202">Horse accepted</response>
+        /// <response code="400">BadRequest or underlying services has failed, check error message</response>
         /// <response code="500">Oops! Something went horribly wrong</response>
         /// <returns>string</returns>
         [HttpPost]
+        [ValidateModel]
         [ProducesResponseType(StatusCodes.Status202Accepted)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(void), StatusCodes.Status500InternalServerError)]
         public IActionResult Create([FromBody] HorseCreate horse)
         {
