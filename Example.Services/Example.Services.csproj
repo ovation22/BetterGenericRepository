@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Example.DTO\Example.DTO.csproj" />
+    <ProjectReference Include="..\Example.Models\Example.Models.csproj" />
+    <ProjectReference Include="..\Example.Repository.Interfaces\Example.Repository.Interfaces.csproj" />
+    <ProjectReference Include="..\Example.Services.Interfaces\Example.Services.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>
