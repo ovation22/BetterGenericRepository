@@ -66,7 +66,7 @@ namespace Example.API.Controllers
         /// <response code="500">Oops! Something went horribly wrong</response>
         /// <returns>string</returns>
         [HttpPost]
-        [ProducesResponseType(typeof(string), StatusCodes.Status202Accepted)]
+        [ProducesResponseType(StatusCodes.Status202Accepted)]
         [ProducesResponseType(typeof(void), StatusCodes.Status500InternalServerError)]
         public IActionResult Create([FromBody] HorseCreate horse)
         {
