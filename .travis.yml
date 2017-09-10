@@ -1,0 +1,13 @@
+language: csharp  
+mono: none
+dotnet: 2.0.0
+dist: trusty
+sudo: false
+solution: BetterGenericRepository.sln
+
+script: 
+- dotnet restore
+- dotnet build
+- dotnet test Example.API.Tests/Example.API.Tests.csproj
+- dotnet test Example.Repository.Tests/Example.Repository.Tests.csproj
+- dotnet test Example.Services.Tests/Example.Services.Tests.csproj
