@@ -1,7 +1,7 @@
 using Moq;
 using Xunit;
 using Example.API.Controllers;
-using Example.DTO;
+using Example.DTO.Horse;
 using Example.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -96,7 +96,7 @@ namespace Example.API.Tests.HorseControllerTests
 
             // Assert
             Assert.NotNull(result);
-            var horse = ((HorseDetail)result.Value);
+            var horse = ((HorseDetail) result.Value);
             Assert.Equal(_horse, horse);
         }
 

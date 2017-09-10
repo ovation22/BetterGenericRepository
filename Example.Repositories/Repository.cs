@@ -24,14 +24,14 @@ namespace Example.Repositories
         {
             get
             {
-                return _modifiers.Aggregate((IQueryable<T>)_dbSet, (current, include) =>
+                return _modifiers.Aggregate((IQueryable<T>) _dbSet, (current, include) =>
                     current.Include(include));
             }
-        }        
+        }
 
         public T Get(Func<T, bool> predicate)
         {
-            return DbSet.Single(predicate);
+            return DbSet.SingleOrDefault(predicate);
         }
 
         public IQueryable<T> GetAll()

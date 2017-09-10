@@ -4,6 +4,7 @@ using Moq;
 using Xunit;
 using Example.API.Controllers;
 using Example.DTO;
+using Example.DTO.Horse;
 using Example.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,10 +20,13 @@ namespace Example.API.Tests.HorseControllerTests
 
         public GetAll()
         {
-            _horses = new List<HorseSummary> { new HorseSummary
+            _horses = new List<HorseSummary>
             {
-                Name = "test"
-            } };
+                new HorseSummary
+                {
+                    Name = "test"
+                }
+            };
 
             _horseServiceMock = new Mock<IHorseService>();
             _horseServiceMock.Setup(x => x.GetAll())
@@ -76,7 +80,7 @@ namespace Example.API.Tests.HorseControllerTests
 
             // Assert
             Assert.NotNull(result);
-            var horses = ((IEnumerable<HorseSummary>)result.Value).ToList();
+            var horses = ((IEnumerable<HorseSummary>) result.Value).ToList();
             Assert.Equal(_horses, horses);
         }
     }

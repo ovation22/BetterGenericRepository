@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using Example.DTO;
+using Example.DTO.Horse;
 using Example.Services.Tests.Factories;
 using Example.Services.Tests.Fakes;
 using Xunit;

@@ -37,7 +37,7 @@ namespace Example.API
             // Register the Swagger generator, defining one or more Swagger documents
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "Dapper Repository Example API", Version = "v1" });
+                c.SwaggerDoc("v1", new Info {Title = "Dapper Repository Example API", Version = "v1"});
             });
         }
 
@@ -55,10 +55,7 @@ namespace Example.API
             app.UseSwagger();
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Dapper Repository Example API");
-            });
+            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Dapper Repository Example API"); });
         }
     }
 }

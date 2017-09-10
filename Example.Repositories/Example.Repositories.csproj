@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Example.DTO\Example.DTO.csproj" />
-    <ProjectReference Include="..\Example.Repository.Interfaces\Example.Repositories.Interfaces.csproj" />
+    <ProjectReference Include="..\Example.Repositories.Interfaces\Example.Repositories.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

@@ -29,7 +29,6 @@ namespace Example.API.Controllers
             if (horse == null)
             {
                 return NotFound("Horse Not Found");
-
             }
 
             return Ok(horse);

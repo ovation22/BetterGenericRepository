@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Example.Models
 {
-    public class Horse
+    public sealed class Horse
     {
         public Horse()
         {
@@ -33,14 +33,14 @@ namespace Example.Models
 
         public int Earnings { get; set; }
 
-        public virtual Color Color { get; set; }
+        public Color Color { get; set; }
 
-        public virtual ICollection<Horse> SireOffspring { get; set; }
+        public ICollection<Horse> SireOffspring { get; set; }
 
-        public virtual Horse Sire { get; set; }
+        public Horse Sire { get; set; }
 
-        public virtual ICollection<Horse> DamOffspring { get; set; }
+        public ICollection<Horse> DamOffspring { get; set; }
 
-        public virtual Horse Dam { get; set; }
+        public Horse Dam { get; set; }
     }
 }

@@ -11,11 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example.DTO", "Example.DTO\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example.Models", "Example.Models\Example.Models.csproj", "{A7780532-D8E4-46A0-9672-C30B827194FE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example.Repositories", "Example.Repository\Example.Repositories.csproj", "{DE424D37-6774-4F76-8AC2-0E418179AC57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example.Repositories", "Example.Repositories\Example.Repositories.csproj", "{DE424D37-6774-4F76-8AC2-0E418179AC57}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example.Repositories.Interfaces", "Example.Repository.Interfaces\Example.Repositories.Interfaces.csproj", "{DDF6B605-89DA-4FE5-BDF5-ABCB526D9ECE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example.Repositories.Interfaces", "Example.Repositories.Interfaces\Example.Repositories.Interfaces.csproj", "{DDF6B605-89DA-4FE5-BDF5-ABCB526D9ECE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example.Repositories.Tests", "Example.Repository.Tests\Example.Repositories.Tests.csproj", "{4021B1B8-6854-45AB-AD17-68FAD5E09BA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example.Repositories.Tests", "Example.Repositories.Tests\Example.Repositories.Tests.csproj", "{4021B1B8-6854-45AB-AD17-68FAD5E09BA6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example.Services", "Example.Services\Example.Services.csproj", "{2FF8B64B-955A-4C6B-941E-EB87DB28616C}"
 EndProject

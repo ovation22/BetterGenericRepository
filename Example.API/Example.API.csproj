@@ -19,8 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Example.Repository.Interfaces\Example.Repositories.Interfaces.csproj" />
-    <ProjectReference Include="..\Example.Repository\Example.Repositories.csproj" />
+    <ProjectReference Include="..\Example.Repositories.Interfaces\Example.Repositories.Interfaces.csproj" />
+    <ProjectReference Include="..\Example.Repositories\Example.Repositories.csproj" />
     <ProjectReference Include="..\Example.Services.Interfaces\Example.Services.Interfaces.csproj" />
     <ProjectReference Include="..\Example.Services\Example.Services.csproj" />
   </ItemGroup>

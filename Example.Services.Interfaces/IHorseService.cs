@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Example.DTO;
+using Example.DTO.Horse;
 
 namespace Example.Services.Interfaces
 {
-    public interface IHorseService    
+    public interface IHorseService
     {
         IEnumerable<HorseSummary> GetAll();
         HorseDetail Get(int id);

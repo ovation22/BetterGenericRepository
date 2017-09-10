@@ -1,4 +1,4 @@
-﻿namespace Example.DTO
+﻿namespace Example.DTO.Horse
 {
     public class HorseSummary
     {

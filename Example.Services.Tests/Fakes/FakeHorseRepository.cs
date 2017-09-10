@@ -39,6 +39,6 @@ namespace Example.Services.Tests.Fakes
         public IRepository<Horse> Include(Expression<Func<Horse, object>> path)
         {
             return this;
-        }        
+        }
     }
 }

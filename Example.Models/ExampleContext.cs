@@ -6,7 +6,8 @@ namespace Example.Models
     {
         public ExampleContext(DbContextOptions<ExampleContext> options)
             : base(options)
-        { }
+        {
+        }
 
         public virtual DbSet<Color> Colors { get; set; }
 

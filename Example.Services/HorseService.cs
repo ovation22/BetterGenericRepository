@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Example.DTO;
+using Example.DTO.Horse;
 using Example.Models;
 using Example.Repositories.Interfaces;
 using Example.Services.Interfaces;
@@ -22,7 +22,7 @@ namespace Example.Services
             {
                 Id = x.Id,
                 Name = x.Name
-            });            
+            });
         }
 
         public HorseDetail Get(int id)

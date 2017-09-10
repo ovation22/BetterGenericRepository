@@ -7,7 +7,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Example.DTO\Example.DTO.csproj" />
     <ProjectReference Include="..\Example.Models\Example.Models.csproj" />
-    <ProjectReference Include="..\Example.Repository.Interfaces\Example.Repositories.Interfaces.csproj" />
+    <ProjectReference Include="..\Example.Repositories.Interfaces\Example.Repositories.Interfaces.csproj" />
     <ProjectReference Include="..\Example.Services.Interfaces\Example.Services.Interfaces.csproj" />
   </ItemGroup>
 

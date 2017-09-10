@@ -44,6 +44,6 @@ namespace Example.Services.Tests.HorseServiceTests
 
             // Assert
             Assert.Null(actualHorse);
-        }      
+        }
     }
 }
