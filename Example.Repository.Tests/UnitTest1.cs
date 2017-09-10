@@ -1,7 +1,6 @@
-using System;
 using Xunit;
 
-namespace Example.Repository.Tests
+namespace Example.Repositories.Tests
 {
     public class UnitTest1
     {
