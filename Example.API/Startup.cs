@@ -1,4 +1,5 @@
-﻿using Example.Models;
+﻿using System.IO;
+using Example.Models;
 using Example.Repositories;
 using Example.Repositories.Interfaces;
 using Example.Services;
@@ -8,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.PlatformAbstractions;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace Example.API
@@ -24,7 +26,7 @@ namespace Example.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ExampleContext>(options =>
+            services.AddDbContextPool<ExampleContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddMvc();
@@ -38,6 +40,11 @@ namespace Example.API
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info {Title = "Dapper Repository Example API", Version = "v1"});
+            });
+
+            services.ConfigureSwaggerGen(c =>
+            {
+                c.IncludeXmlComments(GetXmlCommentsPath(PlatformServices.Default.Application));
             });
         }
 
@@ -56,6 +63,11 @@ namespace Example.API
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Dapper Repository Example API"); });
+        }
+
+        private static string GetXmlCommentsPath(ApplicationEnvironment appEnvironment)
+        {
+            return Path.Combine(appEnvironment.ApplicationBasePath, "Example.API.xml");
         }
     }
 }

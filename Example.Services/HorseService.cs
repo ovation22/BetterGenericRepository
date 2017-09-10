@@ -28,8 +28,26 @@ namespace Example.Services
         public HorseDetail Get(int id)
         {
             var horse = _repository.Include(x => x.Color).Get(x => x.Id == id);
-
+            
             return horse == null ? null : Map(horse);
+        }
+
+        public void Create(HorseCreate horse)
+        {
+            var horseEntity = new Horse
+            {
+                Name = horse.Name,
+                ColorId = horse.ColorId,
+                RaceWins = horse.Win,
+                RacePlace = horse.Place,
+                RaceShow = horse.Show,
+                RaceStarts = horse.Starts,
+                SireId = horse.SireId,
+                DamId = horse.DamId
+            };
+
+            _repository.Add(horseEntity);
+            _repository.Save();
         }
 
         private static HorseDetail Map(Horse horse)

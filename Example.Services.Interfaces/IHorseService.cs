@@ -7,5 +7,6 @@ namespace Example.Services.Interfaces
     {
         IEnumerable<HorseSummary> GetAll();
         HorseDetail Get(int id);
+        void Create(HorseCreate horse);
     }
 }

@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Collections.Generic;
+using Example.DTO.Horse;
+using Microsoft.AspNetCore.Mvc;
 using Example.Services.Interfaces;
+using Microsoft.AspNetCore.Http;
 
 namespace Example.API.Controllers
 {
@@ -13,7 +16,16 @@ namespace Example.API.Controllers
             _horseService = horseService;
         }
 
+        /// <summary>
+        /// Gets the full list of horses
+        /// </summary>
+        /// <response code="200">Horses found</response>
+        /// <response code="500">Oops! Something went horribly wrong</response>
+        /// <returns>IEnumerable&lt;Models.HorseSummary&gt;</returns>
         [HttpGet]
+        [Produces("application/json", Type = typeof(IEnumerable<HorseSummary>))]
+        [ProducesResponseType(typeof(IEnumerable<HorseSummary>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(void), StatusCodes.Status500InternalServerError)]
         public IActionResult Get()
         {
             var horses = _horseService.GetAll();
@@ -21,7 +33,19 @@ namespace Example.API.Controllers
             return Ok(horses);
         }
 
+        /// <summary>
+        /// Gets an individual horse's information
+        /// </summary>
+        /// <param name="id"></param>
+        /// <response code="200">Horse found</response>
+        /// <response code="404">Horse not found</response>
+        /// <response code="500">Oops! Something went horribly wrong</response>
+        /// <returns>string</returns>
         [HttpGet("{id}")]
+        [Produces("application/json", Type = typeof(HorseDetail))]
+        [ProducesResponseType(typeof(HorseDetail), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(void), StatusCodes.Status500InternalServerError)]
         public IActionResult Get(int id)
         {
             var horse = _horseService.Get(id);
@@ -32,6 +56,23 @@ namespace Example.API.Controllers
             }
 
             return Ok(horse);
+        }
+
+        /// <summary>
+        /// Creates a new horse
+        /// </summary>
+        /// <param name="horse"></param>
+        /// <response code="202">Horse accepted</response>
+        /// <response code="500">Oops! Something went horribly wrong</response>
+        /// <returns>string</returns>
+        [HttpPost]
+        [ProducesResponseType(typeof(string), StatusCodes.Status202Accepted)]
+        [ProducesResponseType(typeof(void), StatusCodes.Status500InternalServerError)]
+        public IActionResult Create([FromBody] HorseCreate horse)
+        {
+            _horseService.Create(horse);
+
+            return Accepted();
         }
     }
 }
