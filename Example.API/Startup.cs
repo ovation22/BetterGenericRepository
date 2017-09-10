@@ -1,9 +1,11 @@
-﻿using Example.Repository;
-using Example.Repository.Interfaces;
+﻿using Example.Models;
+using Example.Repositories;
+using Example.Repositories.Interfaces;
 using Example.Services;
 using Example.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
@@ -22,10 +24,14 @@ namespace Example.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ExampleContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddMvc();
 
             services.AddSingleton(Configuration);
-            services.AddScoped(typeof(IRepository<>), typeof(DapperRepository<>));
+            services.AddSingleton(typeof(DbContext), typeof(ExampleContext));
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient<IHorseService, HorseService>();
 
             // Register the Swagger generator, defining one or more Swagger documents

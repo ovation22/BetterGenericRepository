@@ -1,10 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Linq;
+using System.Linq.Expressions;
 
-namespace Example.Repository.Interfaces
+namespace Example.Repositories.Interfaces
 {
     public interface IRepository<T>
     {
-        IEnumerable<T> GetAll();
-        T Get(int id);
+        T Get(Func<T, bool> predicate);
+        IQueryable<T> GetAll();
+        void Add(T entity);
+        void Save();
+        IRepository<T> Include(Expression<Func<T, object>> path);
     }
 }

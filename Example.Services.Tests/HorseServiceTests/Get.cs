@@ -21,7 +21,7 @@ namespace Example.Services.Tests.HorseServiceTests
         public void ItReturnsHorseFromRepository(int id, string name)
         {
             // Arrange
-            var expectedHorse = HorseFactory.Create(_fakeRepository, id, name);
+            var expectedHorse = HorseFactory.Create(_fakeRepository, id, name).WithColor();
             var service = new HorseService(_fakeRepository);
 
             // Act

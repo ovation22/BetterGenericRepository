@@ -24,15 +24,15 @@ namespace Example.API.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var speaker = _horseService.Get(id);
+            var horse = _horseService.Get(id);
 
-            if (speaker == null)
+            if (horse == null)
             {
                 return NotFound("Horse Not Found");
 
             }
 
-            return Ok(speaker);
+            return Ok(horse);
         }
     }
 }
