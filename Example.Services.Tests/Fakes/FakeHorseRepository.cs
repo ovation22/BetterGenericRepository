@@ -13,6 +13,9 @@ namespace Example.Services.Tests.Fakes
 
         public bool GetCalled { get; set; }
         public bool GetAllCalled { get; private set; }
+        public bool AddCalled { get; set; }
+        public bool SaveCalled { get; set; }
+        public Horse AddCalledWith { get; set; }
 
         public Horse Get(Func<Horse, bool> predicate)
         {
@@ -28,12 +31,13 @@ namespace Example.Services.Tests.Fakes
 
         public void Add(Horse entity)
         {
-            throw new NotImplementedException();
+            AddCalled = true;
+            AddCalledWith = entity;
         }
 
         public void Save()
         {
-            throw new NotImplementedException();
+            SaveCalled = true;
         }
 
         public IRepository<Horse> Include(Expression<Func<Horse, object>> path)
